@@ -1,36 +1,44 @@
 "use strict";
 
-function compararObjetos(obj1, obj2){
-    if(obj1.length !== obj2.length){
-        return "Los objetos no son iguales";
-    }
-    if(typeof obj1 === 'object' && typeof obj2 === 'object'){
-        for (const key in obj1) {
-            if(!compararObjetos(obj1[key], obj2[key])){
-                return "Los objetos no son iguales";
-            }
-        }
-        return "Los objetos son iguales";
-    }
-    if(Array.isArray(obj1) && Array.isArray(obj2)){
-        for (let i = 0; i < obj1.length; i++) {
-            if(!compararObjetos(obj1[i], obj2[i])){
-                return "Los objetos no son iguales";
-            }
-        }
-        return "Los objetos son iguales";
-    }
-    if(obj1 === obj2){
-        return "Los objetos son iguales";
-    };
-}
+var fechaInicial, btnCalcular, mostrarTiempo, fechaFinal, tiempo, anios, meses, dias, horas, minutos, segundos, resto;
+fechaInicial = document.getElementById('fecha');
+btnCalcular = document.getElementById('btnCalcular');
+mostrarTiempo = document.getElementById('timer');
 
-console.log(compararObjetos([1,2,3],[1,3,2])); //FALSE
-console.log(compararObjetos([1,2,3],[1,2,3])); //TRUE
-console.log(compararObjetos([1,2,3],[1,2,3,4])); //FALSE
-console.log(compararObjetos({a: 1, b: 2}, {a: 1, b: 2})); //TRUE
-console.log(compararObjetos({a: 1, b: 2}, {a: 1, b: 2, c: 3})); //FALSE
-console.log(compararObjetos([{a: 1, b: 2}], [{a: 1, b: 2}])); //TRUE
-console.log(compararObjetos(2, 2)); //TRUE
-console.log(compararObjetos([{ a: [100, 200], b: 2 }], [{ a: [100, 200], b: 2 }])); //TRUE
-console.log(compararObjetos([{ a: [100, 200], b: { x: 'ABC' } }], [{ a: [100, 200], b: { x: 'ABC' } }])); //TRUE
+btnCalcular.addEventListener('click', tiempoRestante);
+
+function tiempoRestante(){
+    if(!fechaInicial.value){
+        return;
+    }
+
+    fechaFinal = new Date(fechaInicial.value);
+
+    if((fechaFinal.getTime() - Date.now()) <= 0){
+        alert("Seleccione una fecha futura!");
+        return 
+    }
+
+    setInterval(()=>{
+        tiempo = Math.abs(fechaFinal.getTime() - Date.now());
+
+        anios = Math.floor(tiempo / (1000*60*60*24*365));
+        resto = tiempo % (1000*60*60*24*365);
+        
+        meses = Math.floor(resto / (1000*60*60*24*30));
+        resto = tiempo % (1000*60*60*24*30);
+
+        dias = Math.floor(resto / (1000*60*60*24));
+        resto = tiempo % (1000*60*60*24);
+        
+        horas = Math.floor(resto / (1000*60*60));
+        resto = tiempo % (1000*60*60);
+        
+        minutos = Math.floor(resto / (1000*60));
+        resto = tiempo % (1000*60);
+
+        segundos = Math.floor(resto / 1000);
+        
+        mostrarTiempo.innerHTML = "Faltan: " + (anios ? (anios + 'años, ') : '') + (meses ? (meses + 'meses, ') : '') + (dias ? (dias + 'días, ') : '') + (horas ? (horas + 'horas, ') : '') + (minutos ? (minutos + 'minutos y ') : '') + (segundos ? (segundos + 'segundos.') : '');
+    }, 1000);
+}
