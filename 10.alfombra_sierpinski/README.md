@@ -1,0 +1,2 @@
+# LA ALFOMBRA DE SIERPINSKI
+> En este desafío, se propone construir un `fractal` que divida un `cuadrado` en otros `nueve` cuyo tamaño es un `tercio del original`, todo esto utilizando `recursión` para ser generado `2 veces` y luego mostrado en pantalla.
