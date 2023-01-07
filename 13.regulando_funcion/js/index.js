@@ -1,13 +1,15 @@
 "use strict"
 
-var texto, resultado, morse, alpha;
+var texto, resultado, morse, alpha, idTimer;
 texto = document.getElementById('texto');
 resultado = document.getElementById('resultado');
 
 alpha =' ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('');
 morse = '\n,.-,-...,-.-.,-..,.,..-.,--.,....,..,.---,-.-,.-..,--,-.,---,.--.,--.-,.-.,...,-,..-,...-,.--,-..-,-.--,--..,.----,..---,...--,....-,.....,-....,--...,---..,----.,-----'.split(',');
 
-texto.addEventListener('input', convertir);
+texto.addEventListener('input', () => {
+    throttle(convertir, 500)
+});
 
 function convertir(){
     var txt = texto.value.toUpperCase();
@@ -26,4 +28,14 @@ function convertir(){
         txt = txt.join(' ');
         resultado.innerHTML = 'MORSE: ' + txt;
     }
+}
+
+function throttle(func, tiempo) {
+    if (idTimer) {
+        return;
+    }
+    idTimer = setTimeout(() => {
+        func();
+        idTimer = undefined;
+    }, tiempo);
 }

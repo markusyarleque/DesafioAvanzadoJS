@@ -1,2 +1,2 @@
 # REGULANDO FUNCIÓN
-> En este desafío, se propone utilizar `throttle` 
+> En este desafío, se propone utilizar `throttle` para limitar el llamado de una función por un `tiempo determinado` y evitar que la aplicación se `sobrecargue`. En este ejemplo, se utiliza para el evento `input` al convertir un texto ingresado a `código morse` y viceversa.
