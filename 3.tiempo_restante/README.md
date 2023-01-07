@@ -1,0 +1,2 @@
+# TIEMPO RESTANTE
+> En este desafío, se propone crear una función que calcule cuántos `días`, `horas`, `minutos` y `segundos` faltan para una fecha futura que se seleccionará mediante el `input` de `index.html`. Dicho resultado deberá mostrarse en la misma página y tendrá que actualizarse cada `segundo` simulando un cronómetro en vivo.
