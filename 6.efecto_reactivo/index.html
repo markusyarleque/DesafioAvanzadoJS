@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío JS - Una calculadora</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="main_wrapper">
+        <header>
+            <h1>CALCULADORA - EFECTO REACTIVO</h1>
+            <nav>
+                <hr>
+            </nav>
+        </header>
+        <div id="main_container">
+            <div id="contents">
+                <nav id="number">
+                    <p>
+                        <label for="num1">Ingrese primer número: </label>
+                        <input type="number" name="num1" id="num1">
+                    </p>
+                    <p>
+                        <label for="num2">Ingrese segundo número: </label>
+                        <input type="number" name="num2" id="num2">
+                    </p>
+                </nav>
+                <div id="buttons">
+                    <button type="button" name="+" id="+">+</button>
+                    <button type="button" name="-" id="-">-</button>
+                    <button type="button" name="*" id="*">*</button>
+                    <button type="button" name="/" id="/">/</button>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <nav>
+                <div id="resultado">
+                </div>
+            </nav>
+        </footer>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
