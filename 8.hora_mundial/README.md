@@ -1,0 +1,2 @@
+# ¿QUÉ HORA ES ALLÁ?
+> En este desafío, se propone calcular nuestra `hora actual` a diferentes `zonas horarias`, elegiendo entre `1` y `3` zonas diferentes, usar el `objeto Fecha` para calular las `horas de diferencia` y mostrar el resultado en pantalla.

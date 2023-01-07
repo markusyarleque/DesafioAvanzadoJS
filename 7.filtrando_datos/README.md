@@ -1,0 +1,2 @@
+# FILTRANDO DATOS
+> En este desafío, se propone crear un filtro de datos de una lista de elementos y mediante un `input` que permita `actualizar` dicha lista con los elementos que coincidan conforme se digiten los carácteres.
