@@ -1,0 +1,2 @@
+# CÁLCULO DE MÉTRICAS
+> En este desafío, se propone cargar un objeto `json` que contiene información de una `encuesta` sobre la satisfación de los clientes relacionadas a un servicio, incluyendo la `localidad`, la `evaluación` y `fecha` de evaluación, mostrando dicha data en `2 tablas`: en la primera mostrará el` promedio de evaluación de cada mes` y en la segunda, el `promedio de evaluación según la localidad`.
