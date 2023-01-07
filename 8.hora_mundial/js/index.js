@@ -1,30 +1,36 @@
 "use strict"
 
-var search, resultado;
-search = document.getElementById('search');
+var horaActual, span, zonas, offset, resultado, option = '';
+span = document.getElementById('span');
+zonas = document.getElementById('zonas');
 resultado = document.getElementById('resultado');
+const ms_hora = 1000 * 60 * 60;
 
-search.addEventListener('input', mostrarBusqueda);
+//* HORA ACTUAL
+setInterval(() => {
+    horaActual = new Date();
+    span.innerHTML = (horaActual.getDay() + 1) + '/' + (horaActual.getMonth() + 1) + '/' + horaActual.getFullYear() + ', ' + horaActual.getHours() + ':' + horaActual.getMinutes() + ':' + horaActual.getSeconds();
+}, 1000);
 
-function mostrarBusqueda(){
-    resultado.innerHTML = '';
-    const valor = search.value.toLowerCase();
-    const datosFiltrados = DATOS.filter(dato=> dato.nombre.toLowerCase().indexOf(valor) > -1);
-    const fragmento = document.createDocumentFragment();
-    for(const dato of datosFiltrados){
-        fragmento.appendChild(vista(dato));
+//& Mostrar Zonas horarias disponibles
+function mostrarZonas(){
+    for (const zona of zonasHorarias) {
+        option = option + `<option value="${zona.offset}"> ${zona.texto} </option>`;
+        zonas.innerHTML = option;
     }
-    resultado.appendChild(fragmento);
 }
+mostrarZonas();
 
-function vista(text){
-    const span = document.createElement('span');
-    span.innerHTML = `<b>id:</b> ${text.id}<br>
-    <b>nombre:</b> ${text.nombre}<br>
-    <b>compañia:</b> ${text.compania}<br>
-    <b>fecha de nacimiento:</b> ${text.fdn}<br>
-    <b>dirección:</b> ${text.direccion}<br>
-    <b>acerca:</b> ${text.acerca}`;
+//! Función de conversión
+zonas.addEventListener('change', calcularZonaHoraria);
 
-    return span;
+function calcularZonaHoraria(evento){
+    setInterval(() => {
+        offset = evento.target.value;
+        const hoy = new Date();
+        var utc = hoy.getTime();
+        utc += (5* ms_hora)
+        const zonaTiempo = new Date(utc + (offset * ms_hora));
+        return resultado.innerHTML = 'HORA MUNDIAL: ' + zonaTiempo.toLocaleString();
+    }, 1000);
 }

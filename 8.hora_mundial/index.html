@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafío JS - Una calculadora</title>
+    <title>Desafío JS - ¿Qué horas es allá?</title>
     <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="main_wrapper">
         <header>
-            <h1>FILTRANDO DATOS</h1>
+            <h1>HORA ACTUAL: <span id="span"></span></h1>
             <nav>
                 <hr>
             </nav>
@@ -21,8 +21,9 @@
             <div id="contents">
                 <nav id="busqueda">
                     <p>
-                        <label for="search">Búsqueda: </label>
-                        <input type="text" name="search" id="search">
+                        <label for="zonas">Zona Horaria: </label>
+                        <select id="zonas" name="zonas">
+                        </select>
                     </p>
                 </nav>
             </div>
@@ -34,7 +35,7 @@
             </nav>
         </footer>
     </div>
-    <script src="js/datos.js"></script>
+    <script src="js/zonas.js"></script>
     <script src="js/index.js"></script>
 </body>
 
