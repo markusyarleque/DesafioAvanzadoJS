@@ -1,0 +1,39 @@
+body, html {
+    font-size: 16px;
+}
+
+header h1{
+    color: rgb(44, 2, 2);
+    text-align: center;
+}
+
+#busqueda{
+    margin: 1% auto;
+    width: 70%;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+#busqueda input{
+    width: 70%;
+}
+
+span{
+    text-align: left;
+    border: 1px dotted black;
+    padding: 10px 30px;
+}
+
+#resultado{
+    display: flex;
+    border: 1px solid #ccc;
+    background-color: azure;
+    width: 80%;
+    font-size: x-large;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    flex-direction: column;
+    margin: 0 10% 1rem 10%;
+}
