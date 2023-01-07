@@ -1,0 +1,2 @@
+# COLECCIÓN ARTÍSTICA
+> En este desafío, se propone crear un `json` que contiene `rutas` de fotografías o imágenes, luego, recorrer dicho `json` y `cargar` cada imagen `asíncronamente` mostrando en pantalla la `galería`.
