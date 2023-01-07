@@ -1,0 +1,2 @@
+# MI UTILERÍA
+> En este desafío, se propone crear una `minilibreria` en donde, utilizando una función `autoejecutable`, vamos a crear un `objeto` como el de `jQuery` agregando 1 o 2 `métodos de utilidad`. La función autoejecutable debe tener `3 párametros`, el primero es el `nombre global` de la libería, el segundo es la `raíz` de la aplicación y el tercero una `función de factoría` que devolverá en consola un objeto que contendrá los métodos de utilidad.
