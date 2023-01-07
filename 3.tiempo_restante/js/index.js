@@ -14,13 +14,13 @@ function tiempoRestante(){
 
     fechaFinal = new Date(fechaInicial.value);
 
-    if((fechaFinal.getTime() - Date.now()) <= 0){
+    tiempo = (fechaFinal.getTime() - Date.now());
+    if(tiempo <= 0){
         alert("Seleccione una fecha futura!");
         return 
     }
 
     setInterval(()=>{
-        tiempo = Math.abs(fechaFinal.getTime() - Date.now());
 
         anios = Math.floor(tiempo / (1000*60*60*24*365));
         resto = tiempo % (1000*60*60*24*365);
