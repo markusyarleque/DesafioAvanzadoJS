@@ -1,41 +1,26 @@
 "use strict"
 
-var texto, resultado, morse, alpha, idTimer;
-texto = document.getElementById('texto');
-resultado = document.getElementById('resultado');
+const arreglo = [
+    [1, 2],
+    [3, [7, 8, [90, 2, 13]]],
+    [5, [7, 8, 9]],
+    [10, 11, 12, [7, 8, [90, 2, 13]], 14, 15]
+];
 
-alpha =' ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('');
-morse = '\n,.-,-...,-.-.,-..,.,..-.,--.,....,..,.---,-.-,.-..,--,-.,---,.--.,--.-,.-.,...,-,..-,...-,.--,-..-,-.--,--..,.----,..---,...--,....-,.....,-....,--...,---..,----.,-----'.split(',');
+// Modo 1:
+console.log(arreglo.flat(3));
 
-texto.addEventListener('input', () => {
-    throttle(convertir, 500)
-});
+// Modo 2:
+const arregloPlano = [];
 
-function convertir(){
-    var txt = texto.value.toUpperCase();
-    if(txt.slice(0,1) == '.' || txt.slice(0,1) == '-'){
-        txt = txt.split(' ');
-        for (let i = 0; i < txt.length; i++) {
-            txt[i] = alpha[morse.indexOf(txt[i])];
+function aplanar(arr){
+    for(const el of arr){
+        if(Array.isArray(el)){
+            aplanar(el);
+        }else{
+            arregloPlano.push(el);
         }
-        txt = txt.join('');
-        resultado.innerHTML = 'TEXTO: ' + txt;
-    }else{
-        txt = txt.split('');
-        for (let i = 0; i < txt.length; i++) {
-            txt[i] = morse[alpha.indexOf(txt[i])];
-        }
-        txt = txt.join(' ');
-        resultado.innerHTML = 'MORSE: ' + txt;
     }
 }
-
-function throttle(func, tiempo) {
-    if (idTimer) {
-        return;
-    }
-    idTimer = setTimeout(() => {
-        func();
-        idTimer = undefined;
-    }, tiempo);
-}
+aplanar(arreglo);
+console.log(arregloPlano);
