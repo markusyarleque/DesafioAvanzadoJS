@@ -1,0 +1,2 @@
+# INVIRTIENDO UN ÁRBOL BINARIO
+> En este desafío, se propone crear un `árbol binario` utilizando cualquier estructura como objetos o clases que está compuesto de `nodos` dónde cada nodo contiene `2 nodos hijos` y luego crear una `función` que utilice `recursión` y pase los elementos del `nodo derecho` al `nodo izquierdo` y `viceversa`.
